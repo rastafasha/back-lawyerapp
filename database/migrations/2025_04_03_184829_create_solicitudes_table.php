@@ -13,9 +13,9 @@ class CreateSolicitudesTable extends Migration
      */
     public function up()
     {
-        Schema::create('solicitudes', function (Blueprint $table) {
+        Schema::create('solicituds', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade'); // Removed to use pivot table
             $table->json('pedido')->nullable();
             $table->tinyInteger('status')->default(1);
             
@@ -30,6 +30,6 @@ class CreateSolicitudesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('solicitudes');
+        Schema::dropIfExists('solicituds');
     }
 }

@@ -49,9 +49,27 @@ class UserSeeder extends Seeder
 
             ],
             [
+                "role" => User::MEMBER,
+                "username" => "miembro",
+                "email" => "miembro2@miembro.com",
+                "password" => bcrypt("password"),
+                "email_verified_at" => now(),
+                "created_at" => now(),
+
+            ],
+            [
                 "role" => User::GUEST,
                 "username" => "invitado",
                 "email" => "invitado@invitado.com",
+                "password" => bcrypt("password"),
+                "email_verified_at" => now(),
+                "created_at" => now(),
+
+            ],
+            [
+                "role" => User::GUEST,
+                "username" => "invitado",
+                "email" => "invitado2@invitado.com",
                 "password" => bcrypt("password"),
                 "email_verified_at" => now(),
                 "created_at" => now(),

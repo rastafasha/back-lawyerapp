@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ProfileSeeder extends Seeder
+class ProfileSeederUpdated extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,45 +15,45 @@ class ProfileSeeder extends Seeder
     public function run()
     {
         $profiles = [
-            // [
-            //     'user_id' => 1,
-            //     'nombre' => 'Super',
-            //     'surname' => 'Administrador',
-            //     'direccion' => 'Avenida Siempre Viva 742',
-            //     'description' => 'Experto en derecho civil y comercial.',
-            //     'pais' => 'Venezuela',
-            //     'estado' => 'Caracas',
-            //     'ciudad' => 'Caracas',
-            //     'telhome' => '011-1234-5678',
-            //     'telmovil' => '011-9876-5432',
-            //     'n_doc' => '12300008',
-            //     'speciality_id' => null,
-            //     'redessociales' => null,
-            //     'precios' => null,
-            //     'avatar' => null,
-            //     'rating' => null,
-            //     'status' => 'PENDING',
-            // ],
+            [
+                'user_id' => 1,
+                'nombre' => 'Super',
+                'surname' => 'Administrador',
+                'direccion' => 'Avenida Siempre Viva 742',
+                'description' => 'Experto en derecho civil y comercial.',
+                'pais' => 'Venezuela',
+                'estado' => 'Caracas',
+                'ciudad' => 'Caracas',
+                'telhome' => '011-1234-5678',
+                'telmovil' => '011-9876-5432',
+                'n_doc' => '12300008',
+                'speciality_id' => null,
+                'redessociales' => null,
+                'precios' => null,
+                'avatar' => null,
+                'rating' => null,
+                'status' => 'PENDING',
+            ],
 
-            // [
-            //     'user_id' => 2,
-            //     'nombre' => 'Admin',
-            //     'surname' => 'Martinez',
-            //     'direccion' => 'Avenida Siempre Viva 742',
-            //     'description' => 'Experto en derecho civil y comercial.',
-            //     'pais' => 'Venezuela',
-            //     'estado' => 'Caracas',
-            //     'ciudad' => 'Caracas',
-            //     'telhome' => '011-1234-5678',
-            //     'telmovil' => '011-9876-5432',
-            //     'n_doc' => '12345600',
-            //     'speciality_id' => null,
-            //     'redessociales' => null,
-            //     'precios' => null,
-            //     'avatar' => null,
-            //     'rating' => null,
-            //     'status' => 'PENDING',
-            // ],
+            [
+                'user_id' => 2,
+                'nombre' => 'Admin',
+                'surname' => 'Martinez',
+                'direccion' => 'Avenida Siempre Viva 742',
+                'description' => 'Experto en derecho civil y comercial.',
+                'pais' => 'Venezuela',
+                'estado' => 'Caracas',
+                'ciudad' => 'Caracas',
+                'telhome' => '011-1234-5678',
+                'telmovil' => '011-9876-5432',
+                'n_doc' => '12345600',
+                'speciality_id' => null,
+                'redessociales' => null,
+                'precios' => null,
+                'avatar' => null,
+                'rating' => null,
+                'status' => 'PENDING',
+            ],
             [
                 'user_id' => 3,
                 'nombre' => 'Carlos',
@@ -182,6 +182,7 @@ class ProfileSeeder extends Seeder
                 'rating' => null,
                 'status' => 'PENDING',
             ],
+            
         ];
 
         DB::table('profiles')->insert($profiles);

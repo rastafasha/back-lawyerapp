@@ -17,7 +17,7 @@ Route::get('/profile/show/{profile}', [ProfileController::class, 'profileShow'])
 Route::get('/profile/showbyUser/{user}', [ProfileController::class, 'profilebyUser'])
     ->name('profile.show');
 
-Route::put('/profile/update/{profile}', [ProfileController::class, 'profileUpdate'])
+Route::post('/profile/update/{profile}', [ProfileController::class, 'profileUpdate'])
     ->name('profile.update');
 
 Route::delete('/profile/destroy/{profile}', [ProfileController::class, 'destroy'])
@@ -27,8 +27,4 @@ Route::delete('/profile/destroy/{profile}', [ProfileController::class, 'destroy'
 Route::put('/profile/update/status/{profile:id}', [ProfileController::class, 'updateStatus'])
     ->name('profile.updateStatus');
 
-Route::post('/profile/upload', [ProfileController::class, 'upload'])
-    ->name('profile.upload');
 
-Route::delete('/profile/delete-foto/{id}', [ProfileController::class, 'deleteFotoProfile'])
-    ->name('profile.deleteFotoProfile');

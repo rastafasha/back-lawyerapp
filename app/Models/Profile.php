@@ -15,6 +15,7 @@ class Profile extends Model
         "speciality_id",
         "cliente_id",
         'nombre',
+        'n_doc',
         'surname',
         'email',
         'direccion',
@@ -77,5 +78,12 @@ class Profile extends Model
     {
         return $this->hasOne(Speciality::class, 'speciality_id');
     }
+
+    public function solicitudUser()
+    {
+        return $this->belongsToMany(Solicitud::class, 'solicitud_user');
+    }
+
+    
 
 }

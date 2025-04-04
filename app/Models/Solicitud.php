@@ -19,4 +19,10 @@ class Solicitud extends Model
     {
         return $this->hasMany(User::class, 'user_id');
     }
+
+    //relacionamos con la tabla de solicitud_user
+    public function solicitudUser()
+    {
+        return $this->belongsToMany(User::class, 'solicitud_user');
+    }
 }

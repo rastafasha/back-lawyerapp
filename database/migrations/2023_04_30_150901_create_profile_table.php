@@ -18,12 +18,13 @@ class CreateProfileTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             // $table->foreignId('speciality_id')->references('id')->on('specialities') ->nullable();
-            $table->foreignId('speciality_id');
+            $table->foreignId('speciality_id')->nullable();
             // $table->foreignId('cliente_id')->nullable()->references('id')->on('clientes')->onDelete('cascade');
             $table->string('nombre');
             $table->string('surname')->nullable();
             $table->text('direccion')->nullable();
             $table->text('description')->nullable();
+            $table->string('n_doc')->nullable();
             $table->string('pais')->nullable();
             $table->string('estado')->nullable();
             $table->string('ciudad')->nullable();

@@ -34,10 +34,10 @@ class ProfileController extends Controller
     public function profileStore(Request $request)
     {
         $profile = null;
-        $request->validate([
-            'redessociales' => 'array', // Ensure medical is present and is an array
-            'precios' => 'array', // Ensure medical is present and is an array
-        ]);
+        // $request->validate([
+        //     'redessociales' => 'array', // Ensure medical is present and is an array
+        //     'precios' => 'array', // Ensure medical is present and is an array
+        // ]);
 
         if($request->hasFile('image')){
             $path = Storage::putFile("users", $request->file('image'));
@@ -106,10 +106,10 @@ class ProfileController extends Controller
     {
         $profile = Profile::findOrFail($id );
         
-        $request->validate([
-            'redessociales' => 'array', // Ensure medical is present and is an array
-            'precios' => 'array', // Ensure medical is present and is an array
-        ]);
+        // $request->validate([
+        //     'redessociales' => 'array', // Ensure medical is present and is an array
+        //     'precios' => 'array', // Ensure medical is present and is an array
+        // ]);
 
         if($request->hasFile('imagen')){
             if($profile->avatar){
