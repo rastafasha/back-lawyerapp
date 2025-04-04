@@ -198,19 +198,6 @@ class ProfileController extends Controller
         ];
     }
 
-    public function recientes()
-    {
-        // $this->authorize('recientes', User::class);
-
-        $profiles = User::orderBy('created_at', 'DESC')
-        ->get();
-
-        return response()->json([
-            'code' => 200,
-            'status' => 'success',
-            'profiles' => $profiles
-        ], 200);
-    }
 
     public function upload(Request $request)
      {
@@ -312,5 +299,35 @@ class ProfileController extends Controller
 
         return $profile;
         
+    }
+
+    public function recientes()
+    {
+       
+        $recientes = Profile::select('profiles.*', 'specialities.title as speciality_title')
+            ->orderBy('profiles.created_at', 'DESC')
+            ->join('specialities', 'profiles.speciality_id', '=', 'specialities.id')
+            ->where('status', 'VERIFIED')
+            ->get();
+
+        return response()->json([
+            'code' => 200,
+            'status' => 'success',
+            'recientes' => $recientes
+        ], 200);
+    }
+
+    public function destacados()
+    {
+
+        $destacados = Profile::
+                with(["users"])
+                ->where('rating', '>', 1)
+                ->get();
+            return response()->json([
+                'code' => 200,
+                'status' => 'Listar Post destacados',
+                'destacados' => $destacados,
+            ], 200);
     }
 }

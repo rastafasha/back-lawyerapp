@@ -17,6 +17,12 @@ Route::get('/profile/show/{profile}', [ProfileController::class, 'profileShow'])
 Route::get('/profile/showbyUser/{user}', [ProfileController::class, 'profilebyUser'])
     ->name('profile.show');
 
+Route::get('/profile/recientes', [ProfileController::class, 'recientes'])
+    ->name('profile.recientes');
+
+Route::get('/profile/destacados', [ProfileController::class, 'destacados'])
+    ->name('profile.destacados');
+
 Route::post('/profile/update/{profile}', [ProfileController::class, 'profileUpdate'])
     ->name('profile.update');
 
