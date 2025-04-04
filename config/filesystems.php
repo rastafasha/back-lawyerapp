@@ -41,44 +41,7 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-         'posts' => [
-            'driver' => 'local',
-            'root' => storage_path('app/posts/'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-
-        ],
-        'banners' => [
-            'driver' => 'local',
-            'root' => storage_path('app/banners/'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-
-        ],
-
-        'movil' => [
-            'driver' => 'local',
-            'root' => storage_path('app/movil/'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-
-        ],
-       
-        'profiles' => [
-            'driver' => 'local',
-            'root' => storage_path('app/profiles/'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-
-        ],
-
-        'publicacions' => [
-            'driver' => 'local',
-            'root' => storage_path('app/publicacions/'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
-
-        ],
+        
        
         
 

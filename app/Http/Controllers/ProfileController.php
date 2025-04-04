@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Resources\Profile\ProfileCollection;
+use App\Http\Resources\Profile\ProfileResource;
 use App\Models\User;
 use App\Models\Profile;
 use App\Models\Speciality;
@@ -27,7 +29,7 @@ class ProfileController extends Controller
             return response()->json([
                 'code' => 200,
                 'status' => 'Listar todos los Perfiles',
-                'profiles' => $profiles,
+                'profiles' => ProfileCollection::make($profiles),
             ], 200);
     }
 
@@ -91,7 +93,7 @@ class ProfileController extends Controller
         return response()->json([
             'code' => 200,
             'status' => 'success',
-            'profile' => $profile,
+            'profile' => ProfileResource::make($profile),
         ], 200);
     }
 
@@ -104,19 +106,23 @@ class ProfileController extends Controller
      */
     public function profileUpdate(Request $request, $id)
     {
-        $profile = Profile::findOrFail($id );
+        $profile = Profile::findOrFail($id);
         
-        // $request->validate([
-        //     'redessociales' => 'array', // Ensure medical is present and is an array
-        //     'precios' => 'array', // Ensure medical is present and is an array
-        // ]);
+        $request->validate([
+            'image' => 'image|mimes:jpg,jpeg,png,gif|max:2048',
+            // 'redessociales' => 'array',
+            // 'precios' => 'array',
+        ]);
 
-        if($request->hasFile('imagen')){
+        if($request->hasFile('image')){
+            // Delete old avatar if exists
             if($profile->avatar){
-                Storage::delete($profile->avatar);
+                Storage::disk('public')->delete($profile->avatar);
             }
-            $path = Storage::putFile("users", $request->file('imagen'));
-            $request->request->add(["avatar"=>$path]);
+            
+            // Store new avatar in public disk under users directory
+            $path = $request->file('image')->store('users', 'public');
+            $request->request->add(["avatar" => $path]);
         }
 
         $request->request->add(["redessociales"=>json_encode($request->redessociales)]);
